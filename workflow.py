@@ -245,7 +245,7 @@ class IELTSExerciseFlow(Workflow):
         formatted_questions += '<h3 class="font-semibold mb-2">Multiple Choice Questions</h3>\n'
         for i, q in enumerate(questions.multiple_choice, 1):
             formatted_questions += f'<div class="answer-item" data-answer-type="mc" data-id="{i}">\n'
-            formatted_questions += f'<span class="question-number">Question {i}:</span> {q.answer}\n'
+            formatted_questions += f'<span class="question-number">Question {i}</span>&nbsp;{q.answer}\n'
             formatted_questions += '</div>\n'
         formatted_questions += '</div>\n'
         
@@ -254,7 +254,7 @@ class IELTSExerciseFlow(Workflow):
         formatted_questions += '<h3 class="font-semibold mb-2">True/False/Not Given</h3>\n'
         for i, q in enumerate(questions.true_false, 1):
             formatted_questions += f'<div class="answer-item" data-answer-type="tf" data-id="{i}">\n'
-            formatted_questions += f'<span class="question-number">Statement {i}:</span> {q.answer}\n'
+            formatted_questions += f'<span class="question-number">Statement {i}</span>&nbsp;{q.answer}\n'
             formatted_questions += '</div>\n'
         formatted_questions += '</div>\n'
         

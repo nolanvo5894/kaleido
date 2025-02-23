@@ -12,6 +12,8 @@ import openai
 from pathlib import Path
 from datetime import datetime
 from sqlalchemy.orm import Session
+from elevenlabs.client import ElevenLabs
+from elevenlabs import save
 
 app = FastAPI(title="IELTS Exercise Generator API")
 
@@ -123,17 +125,19 @@ async def generate_audio(request: TopicRequest):
         audio_dir = Path('publication/audio')
         audio_dir.mkdir(exist_ok=True)
         
-        # Generate speech using OpenAI TTS
-        client = openai.Client(api_key=os.getenv("OPENAI_API_KEY"))
+        # Generate speech using ElevenLabs
+        client = ElevenLabs()
         
-        speech_file_path = audio_dir / "essay_reading.mp3"
-        response = client.audio.speech.create(
-            model="tts-1",
-            voice="onyx",  # or "alloy", "echo", "fable", "nova", "shimmer"
-            input=essay_content
+        audio = client.text_to_speech.convert(
+            text=essay_content,
+            voice_id="JBFqnCBsd6RMkjVDRZzb",  # You can change this to your preferred voice
+            model_id="eleven_multilingual_v2",
+            output_format="mp3_44100_128"
         )
         
-        response.stream_to_file(str(speech_file_path))
+        # Save the audio file
+        speech_file_path = audio_dir / "essay_reading.mp3"
+        save(audio, str(speech_file_path))
         
         return {"status": "success", "message": "Audio generated successfully"}
         
