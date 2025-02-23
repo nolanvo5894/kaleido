@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Exercise Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/[your-kit-code].css">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900">
+    <div class="min-h-screen flex flex-col bg-gradient-to-b from-green-900 to-green-800">
+        <main class="max-w-7xl mx-auto px-4 py-8 flex-grow flex flex-col">
+            <!-- Center the input section when no content -->
+            <div class="flex-grow flex items-center justify-center">
+                <div class="w-full max-w-2xl">
+                    <h1 class="text-6xl font-bold text-gray-50 mb-8 text-center tracking-tight">Kaleido 🏵️</h1>
+                    <p class="text-gray-400 mb-3 text-center">Enter Any Topic You Want To Learn About</p>
+                    <div class="mb-8">
+                        <div class="flex flex-col gap-4 max-w-3xl mx-auto w-full">
+                            <input 
+                                type="text" 
+                                id="topic" 
+                                placeholder="Try 'quantum computing'"
+                                class="w-full p-4 bg-transparent text-gray-100 placeholder-gray-400 text-2xl border-none outline-none focus:ring-0 transition-all duration-200 text-center"
+                            >
+                            <button 
+                                id="generate" 
+                                class="mx-auto px-8 py-4 bg-green-500/80 backdrop-blur-sm text-white rounded-xl hover:bg-green-600/80 transition-all duration-200 text-lg font-semibold hover:scale-105"
+                            >
+                                Generate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading" class="hidden">
+                <div class="flex items-center justify-center p-8">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                </div>
+            </div>
+
+            <div id="content" class="hidden">
+                <!-- View toggle buttons -->
+                <div class="mb-8 flex gap-4 justify-center">
+                    <button id="reading-view" class="view-toggle-btn active">🧐 Reading</button>
+                    <button id="listening-view" class="view-toggle-btn">🎧 Listening</button>
+                    <button id="exercise-view" class="view-toggle-btn">🔎 Exercise</button>
+                    <button id="history-view" class="view-toggle-btn">⏳️ History</button>
+                </div>
+
+                <!-- Reading only view -->
+                <div id="reading-only-view" class="view-content">
+                    <div class="bg-gray-800/30 backdrop-blur-sm rounded-xl p-8">
+                        <h2 class="text-xl font-semibold mb-4">Reading Passage</h2>
+                        <div id="essay-only" class="prose max-w-none"></div>
+                    </div>
+                </div>
+
+                <!-- Listening only view -->
+                <div id="listening-only-view" class="view-content hidden">
+                    <div class="bg-gray-800/30 backdrop-blur-sm rounded-xl p-8">
+                        <div class="audio-player-container">
+                            <div class="flex flex-col items-center mb-8">
+                                <div class="w-full max-w-2xl bg-gray-700/30 backdrop-blur-sm rounded-xl p-6 mb-4">
+                                    <div class="flex items-center justify-center gap-6 mb-4">
+                                        <button id="play-pause" class="audio-control-btn">
+                                            <span class="play-icon text-3xl">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-gray-200">
+                                                    <polygon points="5 3 19 12 5 21" fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                            <span class="pause-icon hidden text-3xl">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-gray-200">
+                                                    <rect x="6" y="4" width="4" height="16" fill="currentColor"/>
+                                                    <rect x="14" y="4" width="4" height="16" fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        <button id="restart" class="audio-control-btn">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-gray-200">
+                                                <path d="M4 4v5h5" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M4 9a8 8 0 1 1 1.755 8.798" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <audio id="essay-audio" class="w-full hidden">
+                                        <source src="" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                    <div class="progress-bar-container w-full bg-gray-600/50 rounded-full h-2 cursor-pointer">
+                                        <div id="progress-bar" class="bg-green-500 h-2 rounded-full w-0 transition-all"></div>
+                                    </div>
+                                    <div class="flex justify-between text-sm text-gray-400 mt-2">
+                                        <span id="current-time">0:00</span>
+                                        <span id="duration">0:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="transcript-container hidden bg-gray-700/30 backdrop-blur-sm rounded-xl p-6 mt-4">
+                            <h3 class="font-semibold mb-2">Passage</h3>
+                            <div id="transcript" class="prose max-w-none"></div>
+                        </div>
+                        <button id="toggle-transcript" class="text-btn mt-4 hover:text-green-400 transition-colors">
+                            Show Passage
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Exercise view -->
+                <div id="exercise-view-content" class="view-content hidden">
+                    <div class="max-w-3xl mx-auto w-full">
+                        <div class="bg-gray-800/30 backdrop-blur-sm rounded-xl p-8">
+                            <h2 class="text-xl font-semibold mb-4">Questions</h2>
+                            <div id="questions" class="prose max-w-none"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- History view -->
+                <div id="history-view" class="view-content hidden">
+                    <div class="bg-gray-800/30 backdrop-blur-sm rounded-xl p-8">
+                        <h2 class="text-xl font-semibold mb-4">Exercise History</h2>
+                        <div id="exercise-history" class="space-y-4"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
