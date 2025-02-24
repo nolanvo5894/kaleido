@@ -53,6 +53,8 @@ uvicorn app:app --reload
 - Database models are in `models.py`
 - Exercise generation workflow is in `workflow.py`
 
+![Diagram](kaleido_diagram.svg)
+
 ### Features
 - Generate reading exercises from any topic
 - AI-generated illustrations
