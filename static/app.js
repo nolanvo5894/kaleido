@@ -302,23 +302,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add view toggle functionality
     const readingViewBtn = document.getElementById('reading-view');
     const exerciseViewBtn = document.getElementById('exercise-view');
-    const historyViewBtn = document.getElementById('history-view');
     const listeningViewBtn = document.getElementById('listening-view');
     
     const readingOnlyView = document.getElementById('reading-only-view');
     const exerciseView = document.getElementById('exercise-view-content');
-    const historyView = document.getElementById('history-view');
     const listeningView = document.getElementById('listening-only-view');
 
     // Function to switch views
     function switchView(activeBtn, activeView) {
         // Remove active class from all buttons
-        [readingViewBtn, exerciseViewBtn, historyViewBtn, listeningViewBtn].forEach(btn => {
+        [readingViewBtn, exerciseViewBtn, listeningViewBtn].forEach(btn => {
             btn.classList.remove('active');
         });
         
         // Hide all views
-        [readingOnlyView, exerciseView, historyView, listeningView].forEach(view => {
+        [readingOnlyView, exerciseView, listeningView].forEach(view => {
             view.classList.add('hidden');
         });
         
@@ -337,36 +335,10 @@ document.addEventListener('DOMContentLoaded', () => {
         switchView(exerciseViewBtn, exerciseView);
     });
 
-    // History view toggle
-    historyViewBtn.addEventListener('click', () => {
-        switchView(historyViewBtn, historyView);
-        loadExerciseHistory();
-    });
-
     // Listening view toggle
     listeningViewBtn.addEventListener('click', () => {
         switchView(listeningViewBtn, listeningView);
     });
-
-    // Load exercise history
-    async function loadExerciseHistory() {
-        try {
-            const response = await fetch('/api/exercises');
-            const exercises = await response.json();
-            
-            const historyContainer = document.getElementById('exercise-history');
-            historyContainer.innerHTML = exercises.map(exercise => `
-                <div class="exercise-item bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl hover:bg-gray-700/50 transition-all duration-200 cursor-pointer transform hover:-translate-y-1"
-                     onclick="loadExercise(${exercise.id})">
-                    <h3 class="font-semibold text-xl text-gray-100 mb-2">${exercise.topic}</h3>
-                    <p class="text-sm text-gray-400">Created ${new Date(exercise.created_at).toLocaleDateString()} at ${new Date(exercise.created_at).toLocaleTimeString()}</p>
-                </div>
-            `).join('');
-        } catch (error) {
-            console.error('Error loading exercise history:', error);
-            showError('Failed to load exercise history');
-        }
-    }
 
     // Make loadExercise function globally available first
     window.loadExercise = async function(id) {

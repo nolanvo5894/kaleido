@@ -46,6 +46,7 @@ class ExerciseDB(BaseModel):
     id: int
     topic: str
     created_at: datetime
+    image_url: Optional[str] = None
     class Config:
         orm_mode = True
 
