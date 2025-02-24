@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             contentDiv.classList.add('hidden');
             generateButton.disabled = true;
 
-            // Make API request
+            // Make API request for content
             const response = await fetch('/api/generate', {
                 method: 'POST',
                 headers: {
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
             questionsDiv.innerHTML = questionsHtml;
             
-            // Generate audio
+            // Generate audio - This is called every time!
             await generateAudio();
             
             // Show content
@@ -266,9 +266,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const scoreDisplay = document.getElementById('score-display');
         const answerKey = document.getElementById('answer-key');
         const submitButton = document.getElementById('submit-answers');
-        const tryAgainButton = document.getElementById('try-again');
         
-        // Move try again button to score display
+        // Update score display
         scoreDisplay.innerHTML = `
             <h3>✨ Your Results ✨</h3>
             <p>
@@ -292,19 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show results and answer key
         scoreDisplay.classList.remove('hidden');
         answerKey.classList.remove('hidden');
-        
-        // Move try again button into score display
-        scoreDisplay.appendChild(tryAgainButton);
-        tryAgainButton.classList.remove('hidden');
         submitButton.classList.add('hidden');
-        
-        // Disable all inputs
-        document.querySelectorAll('input[type="radio"]').forEach(input => {
-            input.disabled = true;
-        });
-        document.querySelectorAll('.heading').forEach(heading => {
-            heading.setAttribute('draggable', 'false');
-        });
     }
 
     // Add try again functionality

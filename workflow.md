@@ -48,4 +48,22 @@ sequenceDiagram
     Note over Research,Questions: refine_draft_essay: {input: write_essay}
     Note over Research,Questions: write_final_essay: {input: refine_draft_essay}
     Note over Research,Questions: generate_illustration: {input: write_final_essay}
-    Note over Research,Questions: generate_questions: {input: [write_final_essay, generate_illustration]} 
+    Note over Research,Questions: generate_questions: {input: [write_final_essay, generate_illustration]}
+
+1. Research phase:
+   - Topic search
+   - Subtopic generation
+   - Detailed research
+
+2. Content generation:
+   - Essay writing
+   - Editorial review
+   - Final refinement
+
+3. Multimedia:
+   - Image generation
+   - Audio creation
+
+4. Exercise creation:
+   - Question generation
+   - Answer key creation 

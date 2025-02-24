@@ -310,7 +310,6 @@ class IELTSExerciseFlow(Workflow):
         # Add submit button and score display
         formatted_questions += '<div class="controls-container">\n'
         formatted_questions += '<button id="submit-answers" class="submit-btn">Submit Answers</button>\n'
-        formatted_questions += '<button id="try-again" class="try-again-btn hidden">Try Again</button>\n'
         formatted_questions += '<div id="score-display" class="hidden"></div>\n'
         formatted_questions += '</div>\n'
 

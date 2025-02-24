@@ -794,4 +794,192 @@ input[type="text"]::placeholder {
         0 4px 6px -1px rgba(0, 0, 0, 0.1),
         0 2px 4px -1px rgba(0, 0, 0, 0.06),
         inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Dynamic background with animated particles */
+.bg-mesh {
+    background-color: #1a1a2e;  /* Darker base color */
+    background-image: 
+        radial-gradient(at 40% 20%, rgba(147, 51, 234, 0.15) 0px, transparent 50%),  /* Purple */
+        radial-gradient(at 80% 0%, rgba(236, 72, 153, 0.15) 0px, transparent 50%),   /* Pink */
+        radial-gradient(at 0% 50%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),   /* Blue */
+        radial-gradient(at 80% 50%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),  /* Green */
+        radial-gradient(at 0% 100%, rgba(245, 158, 11, 0.15) 0px, transparent 50%),  /* Orange */
+        radial-gradient(at 80% 100%, rgba(239, 68, 68, 0.15) 0px, transparent 50%),  /* Red */
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%);    /* Indigo */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Multiple animated pattern layers */
+.bg-mesh::before,
+.bg-mesh::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    opacity: 0.3;
+    pointer-events: none;
+    mix-blend-mode: soft-light;
+}
+
+.bg-mesh::before {
+    background: 
+        repeating-linear-gradient(
+            60deg,
+            transparent 0%,
+            rgba(236, 72, 153, 0.07) 1%,  /* Pink */
+            transparent 2%
+        ),
+        repeating-linear-gradient(
+            -60deg,
+            transparent 0%,
+            rgba(59, 130, 246, 0.07) 1%,  /* Blue */
+            transparent 2%
+        );
+    animation: patternMove 40s linear infinite;
+    transform-origin: center;
+}
+
+.bg-mesh::after {
+    background: 
+        radial-gradient(
+            circle at center,
+            transparent 30%,
+            rgba(147, 51, 234, 0.07) 40%,  /* Purple */
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 30% 70%,
+            transparent 30%,
+            rgba(245, 158, 11, 0.07) 40%,  /* Orange */
+            transparent 50%
+        );
+    background-size: 100% 100%, 50% 50%;
+    animation: patternPulse 30s ease infinite;
+}
+
+/* Pattern animations */
+@keyframes patternMove {
+    0% {
+        transform: translateX(0) scale(1);
+    }
+    50% {
+        transform: translateX(-20px) scale(1.05);
+    }
+    100% {
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes patternPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+}
+
+/* Floating particles with different colors */
+.bg-mesh .particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    transform-origin: center;
+    will-change: transform, opacity;
+    filter: blur(0.5px);
+}
+
+/* Generate different colored particles */
+.bg-mesh .particle:nth-child(6n+1) { 
+    background: rgba(147, 51, 234, 0.3);  /* Purple */
+    box-shadow: 0 0 4px rgba(147, 51, 234, 0.3);
+}
+.bg-mesh .particle:nth-child(6n+2) { 
+    background: rgba(236, 72, 153, 0.3);  /* Pink */
+    box-shadow: 0 0 4px rgba(236, 72, 153, 0.3);
+}
+.bg-mesh .particle:nth-child(6n+3) { 
+    background: rgba(59, 130, 246, 0.3);  /* Blue */
+    box-shadow: 0 0 4px rgba(59, 130, 246, 0.3);
+}
+.bg-mesh .particle:nth-child(6n+4) { 
+    background: rgba(16, 185, 129, 0.3);  /* Green */
+    box-shadow: 0 0 4px rgba(16, 185, 129, 0.3);
+}
+.bg-mesh .particle:nth-child(6n+5) { 
+    background: rgba(245, 158, 11, 0.3);  /* Orange */
+    box-shadow: 0 0 4px rgba(245, 158, 11, 0.3);
+}
+.bg-mesh .particle:nth-child(6n) { 
+    background: rgba(239, 68, 68, 0.3);   /* Red */
+    box-shadow: 0 0 4px rgba(239, 68, 68, 0.3);
+}
+
+@keyframes swirl {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: var(--opacity, 0.8);
+    }
+    90% {
+        opacity: var(--opacity, 0.8);
+    }
+    100% {
+        transform: translate(var(--tx, 100px), var(--ty, -200px)) rotate(var(--tr, 360deg)) scale(0.8);
+        opacity: 0;
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    20% {
+        transform: scale(1.2);
+        opacity: var(--opacity, 0.8);
+    }
+    40% {
+        transform: scale(1);
+        opacity: var(--opacity, 0.6);
+    }
+    60% {
+        transform: scale(1.1);
+        opacity: calc(var(--opacity, 0.4) * 0.8);
+    }
+    80% {
+        transform: scale(0.9);
+        opacity: calc(var(--opacity, 0.2) * 0.6);
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* Modern, clean interface */
+.modern-interface {
+    /* Add modern interface styles here */
+}
+
+/* Responsive design */
+.responsive-design {
+    /* Add responsive design styles here */
+}
+
+/* Smooth transitions and animations */
+.smooth-transitions {
+    /* Add smooth transitions and animations styles here */
 } 

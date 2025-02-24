@@ -128,6 +128,15 @@ async def generate_ielts_exercise(request: TopicRequest, db: Session = Depends(g
 @app.post("/api/generate-audio")
 async def generate_audio(request: TopicRequest):
     try:
+        audio_dir = Path('publication/audio')
+        audio_dir.mkdir(exist_ok=True)
+        
+        speech_file_path = audio_dir / "essay_reading.mp3"
+        
+        # Check if audio already exists
+        if speech_file_path.exists():
+            return {"status": "success", "message": "Audio already exists"}
+            
         # Get the essay content
         essay_path = 'publication/final_essay.md'
         if not os.path.exists(essay_path):
@@ -136,22 +145,17 @@ async def generate_audio(request: TopicRequest):
         with open(essay_path, 'r', encoding='utf-8') as f:
             essay_content = f.read()
         
-        # Create audio directory if it doesn't exist
-        audio_dir = Path('publication/audio')
-        audio_dir.mkdir(exist_ok=True)
-        
         # Generate speech using ElevenLabs
         client = ElevenLabs()
         
         audio = client.text_to_speech.convert(
             text=essay_content,
-            voice_id="JBFqnCBsd6RMkjVDRZzb",  # You can change this to your preferred voice
+            voice_id="JBFqnCBsd6RMkjVDRZzb",
             model_id="eleven_multilingual_v2",
             output_format="mp3_44100_128"
         )
         
         # Save the audio file
-        speech_file_path = audio_dir / "essay_reading.mp3"
         save(audio, str(speech_file_path))
         
         return {"status": "success", "message": "Audio generated successfully"}
