@@ -119,11 +119,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
             questionsDiv.innerHTML = questionsHtml;
             
-            // Generate audio - This is called every time!
+            // Show content first
+            contentDiv.classList.remove('hidden');
+            
+            // Generate audio after content is confirmed
             await generateAudio();
             
-            // Show content
-            contentDiv.classList.remove('hidden');
         } catch (error) {
             showError(error.message);
             contentDiv.classList.add('hidden');
@@ -489,11 +490,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error('Failed to generate audio');
             }
 
-            // Update audio source
-            audioPlayer.src = '/audio/essay_reading.mp3';
-            await audioPlayer.load();
+            const data = await response.json();
+            
+            // Update audio source only if successful
+            if (data.status === 'success') {
+                audioPlayer.src = '/audio/essay_reading.mp3';
+                await audioPlayer.load();
+            }
         } catch (error) {
-            showError('Error generating audio: ' + error.message);
+            console.error('Error generating audio:', error);
+            // Don't show error to user, just fail silently since audio is optional
         }
     }
 
