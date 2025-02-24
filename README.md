@@ -13,6 +13,7 @@ ELEVENLABS_API_KEY=your_elevenlabs_api_key
 FAL_KEY=your_fal_ai_key
 TAVILY_API_KEY=your_tavily_api_key
 ```
+NOTE: ElevenLabs and Tavily both have easily obtainable FREE Tier API Keys
 
 ### Installation
 
