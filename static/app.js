@@ -1,4 +1,57 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Create floating particles
+    const bgMesh = document.querySelector('.bg-mesh');
+    
+    function createParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random starting position
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        
+        // Random size - varying from small to large
+        const size = 2 + Math.random() * 6; // Random size between 2px and 8px
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Bigger particles should be more transparent
+        const opacity = Math.max(0.1, 0.4 - (size - 2) * 0.05);
+        particle.style.opacity = opacity;
+        
+        // Random animation type - bigger particles more likely to pop
+        const animationType = size > 5 ? 'pop' : (Math.random() < 0.5 ? 'swirl' : 'pop');
+        particle.style.animation = `${animationType} ${15 + Math.random() * 10}s infinite cubic-bezier(0.4, 0, 0.2, 1)`;
+        
+        // Add random movement path for swirling particles
+        if (animationType === 'swirl') {
+            const tx = (Math.random() - 0.5) * 300;
+            const ty = -100 - Math.random() * 200;
+            const tr = 180 + Math.random() * 360;
+            particle.style.setProperty('--tx', `${tx}px`);
+            particle.style.setProperty('--ty', `${ty}px`);
+            particle.style.setProperty('--tr', `${tr}deg`);
+        }
+        
+        bgMesh.appendChild(particle);
+        
+        particle.addEventListener('animationend', () => {
+            particle.remove();
+        });
+    }
+    
+    // Initially create more particles
+    for (let i = 0; i < 50; i++) {
+        createParticle();
+    }
+    
+    // Create new particles more frequently
+    setInterval(() => {
+        if (bgMesh.querySelectorAll('.particle').length < 100) {
+            createParticle();
+        }
+    }, 200);
+
     const topicInput = document.getElementById('topic');
     const generateButton = document.getElementById('generate');
     const loadingDiv = document.getElementById('loading');

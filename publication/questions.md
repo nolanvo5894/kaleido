@@ -4,27 +4,27 @@
 
 <div class="question-section" id="multiple-choice">
 <div class="question" data-type="multiple-choice" data-id="1">
-1. What is one of the primary characteristics of noodle soup?
-<label class="option"><input type="radio" name="mc-1" value="Its simplicity"> Its simplicity</label>
-<label class="option"><input type="radio" name="mc-1" value="Its nutritional value"> Its nutritional value</label>
-<label class="option"><input type="radio" name="mc-1" value="Its high price"> Its high price</label>
-<label class="option"><input type="radio" name="mc-1" value="Its exclusivity"> Its exclusivity</label>
+1. What is the primary geometric arrangement of mirrors in a kaleidoscope?
+<label class="option"><input type="radio" name="mc-1" value="Straight line"> Straight line</label>
+<label class="option"><input type="radio" name="mc-1" value="V-shape"> V-shape</label>
+<label class="option"><input type="radio" name="mc-1" value="Circular"> Circular</label>
+<label class="option"><input type="radio" name="mc-1" value="Square"> Square</label>
 </div>
 
 <div class="question" data-type="multiple-choice" data-id="2">
-2. Which ingredient is mentioned as enhancing the flavor of chicken noodle soup?
-<label class="option"><input type="radio" name="mc-2" value="Tomato paste"> Tomato paste</label>
-<label class="option"><input type="radio" name="mc-2" value="Parmesan rinds"> Parmesan rinds</label>
-<label class="option"><input type="radio" name="mc-2" value="Ground beef"> Ground beef</label>
-<label class="option"><input type="radio" name="mc-2" value="Soy sauce"> Soy sauce</label>
+2. How many reflections can a two-mirror setup with a 30-degree wedge produce?
+<label class="option"><input type="radio" name="mc-2" value="5"> 5</label>
+<label class="option"><input type="radio" name="mc-2" value="8"> 8</label>
+<label class="option"><input type="radio" name="mc-2" value="11"> 11</label>
+<label class="option"><input type="radio" name="mc-2" value="15"> 15</label>
 </div>
 
 <div class="question" data-type="multiple-choice" data-id="3">
-3. What role does noodle soup play in educational initiatives according to the essay?
-<label class="option"><input type="radio" name="mc-3" value="Teaching cooking skills"> Teaching cooking skills</label>
-<label class="option"><input type="radio" name="mc-3" value="Promoting nutrition"> Promoting nutrition</label>
-<label class="option"><input type="radio" name="mc-3" value="Reducing food waste"> Reducing food waste</label>
-<label class="option"><input type="radio" name="mc-3" value="Encouraging fast food consumption"> Encouraging fast food consumption</label>
+3. Which aspect of kaleidoscopes significantly enhances children's cognitive development and creativity?
+<label class="option"><input type="radio" name="mc-3" value="Colorful patterns"> Colorful patterns</label>
+<label class="option"><input type="radio" name="mc-3" value="Mechanical construction"> Mechanical construction</label>
+<label class="option"><input type="radio" name="mc-3" value="Mirror material"> Mirror material</label>
+<label class="option"><input type="radio" name="mc-3" value="Historical significance"> Historical significance</label>
 </div>
 
 </div>
@@ -33,28 +33,28 @@
 
 <div class="question-section" id="true-false">
 <div class="question" data-type="true-false" data-id="1">
-1. Noodle soup is only popular in Asian cultures.
+1. Kaleidoscopes only serve as toys and have no educational value.
 <label class="option"><input type="radio" name="tf-1" value="True"> True</label>
                 <label class="option"><input type="radio" name="tf-1" value="False"> False</label>
                 <label class="option"><input type="radio" name="tf-1" value="Not Given"> Not Given</label>
             </div>
 
 <div class="question" data-type="true-false" data-id="2">
-2. Noodle soup can be both complex and simple to prepare.
+2. Artists have used designs produced by kaleidoscopes for inspiration.
 <label class="option"><input type="radio" name="tf-2" value="True"> True</label>
                 <label class="option"><input type="radio" name="tf-2" value="False"> False</label>
                 <label class="option"><input type="radio" name="tf-2" value="Not Given"> Not Given</label>
             </div>
 
 <div class="question" data-type="true-false" data-id="3">
-3. Organizations like Noodle Soup focus on providing gourmet recipes.
+3. The kaleidoscope is primarily based on principles of sound rather than light.
 <label class="option"><input type="radio" name="tf-3" value="True"> True</label>
                 <label class="option"><input type="radio" name="tf-3" value="False"> False</label>
                 <label class="option"><input type="radio" name="tf-3" value="Not Given"> Not Given</label>
             </div>
 
 <div class="question" data-type="true-false" data-id="4">
-4. Noodle soup has no significance in cultural celebrations.
+4. Kaleidoscopes evolve dynamically based on adjustments of the viewed object.
 <label class="option"><input type="radio" name="tf-4" value="True"> True</label>
                 <label class="option"><input type="radio" name="tf-4" value="False"> False</label>
                 <label class="option"><input type="radio" name="tf-4" value="Not Given"> Not Given</label>
@@ -69,10 +69,10 @@ Match these headings to the correct paragraphs:
 
 <div class="matching-container">
 <div class="headings-list">
-<div class="heading" draggable="true" data-id="1">The Emotional Connection to Noodle Soup</div>
-<div class="heading" draggable="true" data-id="2">The Nutritional Education Initiatives</div>
-<div class="heading" draggable="true" data-id="3">The Preparation Techniques for Noodle Soup</div>
-<div class="heading" draggable="true" data-id="4">The Cultural Variations of Noodle Soup</div>
+<div class="heading" draggable="true" data-id="1">The Mechanics of a Kaleidoscope</div>
+<div class="heading" draggable="true" data-id="2">The Educational Importance of Kaleidoscopes</div>
+<div class="heading" draggable="true" data-id="3">Kaleidoscopes in Art</div>
+<div class="heading" draggable="true" data-id="4">Conclusion: The Kaleidoscope's Broader Influence</div>
 </div>
 <div class="paragraph-slots">
 <div class="slot" data-slot="1">Paragraph 1</div>
@@ -89,13 +89,13 @@ Match these headings to the correct paragraphs:
 <div class="answer-section">
 <h3 class="font-semibold mb-2">Multiple Choice Questions</h3>
 <div class="answer-item" data-answer-type="mc" data-id="1">
-<span class="question-number">Question 1</span>&nbsp;Its nutritional value
+<span class="question-number">Question 1</span>&nbsp;V-shape
 </div>
 <div class="answer-item" data-answer-type="mc" data-id="2">
-<span class="question-number">Question 2</span>&nbsp;Parmesan rinds
+<span class="question-number">Question 2</span>&nbsp;11
 </div>
 <div class="answer-item" data-answer-type="mc" data-id="3">
-<span class="question-number">Question 3</span>&nbsp;Promoting nutrition
+<span class="question-number">Question 3</span>&nbsp;Colorful patterns
 </div>
 </div>
 <div class="answer-section">
@@ -110,16 +110,16 @@ Match these headings to the correct paragraphs:
 <span class="question-number">Statement 3</span>&nbsp;False
 </div>
 <div class="answer-item" data-answer-type="tf" data-id="4">
-<span class="question-number">Statement 4</span>&nbsp;Not Given
+<span class="question-number">Statement 4</span>&nbsp;True
 </div>
 </div>
 <div class="answer-section">
 <h3 class="font-semibold mb-2">Matching Headings</h3>
 <div class="matching-answers">
-<div class="answer-item">Paragraph 1: The Emotional Connection to Noodle Soup</div>
-<div class="answer-item">Paragraph 2: The Nutritional Education Initiatives</div>
-<div class="answer-item">Paragraph 3: The Preparation Techniques for Noodle Soup</div>
-<div class="answer-item">Paragraph 4: The Cultural Variations of Noodle Soup</div>
+<div class="answer-item">Paragraph 1: The Mechanics of a Kaleidoscope</div>
+<div class="answer-item">Paragraph 2: The Educational Importance of Kaleidoscopes</div>
+<div class="answer-item">Paragraph 3: Kaleidoscopes in Art</div>
+<div class="answer-item">Paragraph 4: Conclusion: The Kaleidoscope's Broader Influence</div>
 </div>
 </div>
 </div>
