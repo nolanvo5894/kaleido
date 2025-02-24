@@ -18,7 +18,7 @@ TAVILY_API_KEY=your_tavily_api_key
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/kaleido.git
+git clone https://github.com/nolanvo5894/kaleido.git
 cd kaleido
 ```
 
