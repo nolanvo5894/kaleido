@@ -4,27 +4,27 @@
 
 <div class="question-section" id="multiple-choice">
 <div class="question" data-type="multiple-choice" data-id="1">
-1. What is primarily responsible for regulating circadian rhythms?
-<label class="option"><input type="radio" name="mc-1" value="The pineal gland"> The pineal gland</label>
-<label class="option"><input type="radio" name="mc-1" value="The hypothalamus"> The hypothalamus</label>
-<label class="option"><input type="radio" name="mc-1" value="The suprachiasmatic nucleus (SCN)"> The suprachiasmatic nucleus (SCN)</label>
-<label class="option"><input type="radio" name="mc-1" value="The adrenal glands"> The adrenal glands</label>
+1. What is one of the primary characteristics of noodle soup?
+<label class="option"><input type="radio" name="mc-1" value="Its simplicity"> Its simplicity</label>
+<label class="option"><input type="radio" name="mc-1" value="Its nutritional value"> Its nutritional value</label>
+<label class="option"><input type="radio" name="mc-1" value="Its high price"> Its high price</label>
+<label class="option"><input type="radio" name="mc-1" value="Its exclusivity"> Its exclusivity</label>
 </div>
 
 <div class="question" data-type="multiple-choice" data-id="2">
-2. Which hormone is secreted by the pineal gland to facilitate sleep onset?
-<label class="option"><input type="radio" name="mc-2" value="Cortisol"> Cortisol</label>
-<label class="option"><input type="radio" name="mc-2" value="Prolactin"> Prolactin</label>
-<label class="option"><input type="radio" name="mc-2" value="Adrenaline"> Adrenaline</label>
-<label class="option"><input type="radio" name="mc-2" value="Melatonin"> Melatonin</label>
+2. Which ingredient is mentioned as enhancing the flavor of chicken noodle soup?
+<label class="option"><input type="radio" name="mc-2" value="Tomato paste"> Tomato paste</label>
+<label class="option"><input type="radio" name="mc-2" value="Parmesan rinds"> Parmesan rinds</label>
+<label class="option"><input type="radio" name="mc-2" value="Ground beef"> Ground beef</label>
+<label class="option"><input type="radio" name="mc-2" value="Soy sauce"> Soy sauce</label>
 </div>
 
 <div class="question" data-type="multiple-choice" data-id="3">
-3. What health condition is NOT mentioned as being associated with chronic sleep deprivation?
-<label class="option"><input type="radio" name="mc-3" value="Obesity"> Obesity</label>
-<label class="option"><input type="radio" name="mc-3" value="Cancers"> Cancers</label>
-<label class="option"><input type="radio" name="mc-3" value="Diabetes"> Diabetes</label>
-<label class="option"><input type="radio" name="mc-3" value="Cardiovascular diseases"> Cardiovascular diseases</label>
+3. What role does noodle soup play in educational initiatives according to the essay?
+<label class="option"><input type="radio" name="mc-3" value="Teaching cooking skills"> Teaching cooking skills</label>
+<label class="option"><input type="radio" name="mc-3" value="Promoting nutrition"> Promoting nutrition</label>
+<label class="option"><input type="radio" name="mc-3" value="Reducing food waste"> Reducing food waste</label>
+<label class="option"><input type="radio" name="mc-3" value="Encouraging fast food consumption"> Encouraging fast food consumption</label>
 </div>
 
 </div>
@@ -33,28 +33,28 @@
 
 <div class="question-section" id="true-false">
 <div class="question" data-type="true-false" data-id="1">
-1. Circadian rhythms are unaffected by environmental factors such as light.
+1. Noodle soup is only popular in Asian cultures.
 <label class="option"><input type="radio" name="tf-1" value="True"> True</label>
                 <label class="option"><input type="radio" name="tf-1" value="False"> False</label>
                 <label class="option"><input type="radio" name="tf-1" value="Not Given"> Not Given</label>
             </div>
 
 <div class="question" data-type="true-false" data-id="2">
-2. REM sleep is important for emotional regulation and memory consolidation.
+2. Noodle soup can be both complex and simple to prepare.
 <label class="option"><input type="radio" name="tf-2" value="True"> True</label>
                 <label class="option"><input type="radio" name="tf-2" value="False"> False</label>
                 <label class="option"><input type="radio" name="tf-2" value="Not Given"> Not Given</label>
             </div>
 
 <div class="question" data-type="true-false" data-id="3">
-3. According to the Centers for Disease Control and Prevention, most adults get enough sleep.
+3. Organizations like Noodle Soup focus on providing gourmet recipes.
 <label class="option"><input type="radio" name="tf-3" value="True"> True</label>
                 <label class="option"><input type="radio" name="tf-3" value="False"> False</label>
                 <label class="option"><input type="radio" name="tf-3" value="Not Given"> Not Given</label>
             </div>
 
 <div class="question" data-type="true-false" data-id="4">
-4. Maintaining a consistent sleep schedule can help improve sleep hygiene.
+4. Noodle soup has no significance in cultural celebrations.
 <label class="option"><input type="radio" name="tf-4" value="True"> True</label>
                 <label class="option"><input type="radio" name="tf-4" value="False"> False</label>
                 <label class="option"><input type="radio" name="tf-4" value="Not Given"> Not Given</label>
@@ -69,10 +69,10 @@ Match these headings to the correct paragraphs:
 
 <div class="matching-container">
 <div class="headings-list">
-<div class="heading" draggable="true" data-id="1">The Role of Light in Sleep Regulation</div>
-<div class="heading" draggable="true" data-id="2">Consequences of Sleep Deprivation</div>
-<div class="heading" draggable="true" data-id="3">Understanding Sleep Stages</div>
-<div class="heading" draggable="true" data-id="4">Tips for Better Sleep Hygiene</div>
+<div class="heading" draggable="true" data-id="1">The Emotional Connection to Noodle Soup</div>
+<div class="heading" draggable="true" data-id="2">The Nutritional Education Initiatives</div>
+<div class="heading" draggable="true" data-id="3">The Preparation Techniques for Noodle Soup</div>
+<div class="heading" draggable="true" data-id="4">The Cultural Variations of Noodle Soup</div>
 </div>
 <div class="paragraph-slots">
 <div class="slot" data-slot="1">Paragraph 1</div>
@@ -89,13 +89,13 @@ Match these headings to the correct paragraphs:
 <div class="answer-section">
 <h3 class="font-semibold mb-2">Multiple Choice Questions</h3>
 <div class="answer-item" data-answer-type="mc" data-id="1">
-<span class="question-number">Question 1</span>&nbsp;The suprachiasmatic nucleus (SCN)
+<span class="question-number">Question 1</span>&nbsp;Its nutritional value
 </div>
 <div class="answer-item" data-answer-type="mc" data-id="2">
-<span class="question-number">Question 2</span>&nbsp;Melatonin
+<span class="question-number">Question 2</span>&nbsp;Parmesan rinds
 </div>
 <div class="answer-item" data-answer-type="mc" data-id="3">
-<span class="question-number">Question 3</span>&nbsp;Cancers
+<span class="question-number">Question 3</span>&nbsp;Promoting nutrition
 </div>
 </div>
 <div class="answer-section">
@@ -110,16 +110,16 @@ Match these headings to the correct paragraphs:
 <span class="question-number">Statement 3</span>&nbsp;False
 </div>
 <div class="answer-item" data-answer-type="tf" data-id="4">
-<span class="question-number">Statement 4</span>&nbsp;True
+<span class="question-number">Statement 4</span>&nbsp;Not Given
 </div>
 </div>
 <div class="answer-section">
 <h3 class="font-semibold mb-2">Matching Headings</h3>
 <div class="matching-answers">
-<div class="answer-item">Paragraph 1: The Role of Light in Sleep Regulation</div>
-<div class="answer-item">Paragraph 2: Consequences of Sleep Deprivation</div>
-<div class="answer-item">Paragraph 3: Understanding Sleep Stages</div>
-<div class="answer-item">Paragraph 4: Tips for Better Sleep Hygiene</div>
+<div class="answer-item">Paragraph 1: The Emotional Connection to Noodle Soup</div>
+<div class="answer-item">Paragraph 2: The Nutritional Education Initiatives</div>
+<div class="answer-item">Paragraph 3: The Preparation Techniques for Noodle Soup</div>
+<div class="answer-item">Paragraph 4: The Cultural Variations of Noodle Soup</div>
 </div>
 </div>
 </div>

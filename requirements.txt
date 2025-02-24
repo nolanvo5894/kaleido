@@ -13,4 +13,5 @@ uvicorn
 python-multipart
 sqlalchemy==1.4.41
 aiosqlite==0.17.0
-elevenlabs 
+elevenlabs
+fal-client 

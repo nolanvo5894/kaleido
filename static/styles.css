@@ -486,4 +486,85 @@ input[type="text"]::placeholder {
 
 .progress-bar-container:hover #progress-bar {
     background-color: #34d399;
+}
+
+.illustration-container {
+    background-color: rgba(20, 83, 45, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.illustration-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.illustration-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Reading view styles */
+.reading-content {
+    font-size: 1.125rem; /* Increased base font size */
+    line-height: 1.8;
+    color: #e5e7eb;
+}
+
+.reading-content h1, 
+.reading-content h2, 
+.reading-content h3 {
+    font-family: "futura-pt-bold", sans-serif;
+    color: #f3f4f6;
+    margin-bottom: 1.5rem;
+}
+
+.reading-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    background: linear-gradient(to right, #22c55e, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.reading-content h2 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+
+.reading-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+}
+
+.reading-content p {
+    margin: 1.25rem 0;
+    opacity: 0.9;
+}
+
+/* Add nice spacing between paragraphs */
+.reading-content p + p {
+    margin-top: 1.5rem;
+}
+
+/* Style links in the content */
+.reading-content a {
+    color: #22c55e;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.reading-content a:hover {
+    color: #34d399;
+    text-decoration: underline;
 } 

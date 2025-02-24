@@ -12,6 +12,7 @@ class Exercise(Base):
     topic = Column(String(255), index=True, nullable=False)
     essay = Column(Text, nullable=False)
     questions = Column(Text, nullable=False)
+    image_url = Column(String(1024))  # Add column for storing image URL
     created_at = Column(DateTime, default=datetime.utcnow)
 
 # Create database engine and session

@@ -17,6 +17,7 @@ from llama_index.core.workflow import (
 import ell
 import openai
 from pydantic import BaseModel, Field
+import fal_client
 
 load_dotenv()
 
@@ -44,6 +45,9 @@ class FinalEssayPackage(Event):
 
 class QuestionPackage(Event):
     questions: str
+
+class ImagePackage(Event):
+    image_url: str
 
 # Pydantic models
 class ContentSubtopics(BaseModel):
@@ -177,7 +181,41 @@ class IELTSExerciseFlow(Workflow):
         return FinalEssayPackage(final_essay=str(final_essay))
 
     @step
-    async def generate_questions(self, ctx: Context, ev: FinalEssayPackage) -> StopEvent:
+    async def generate_illustration(self, ctx: Context, ev: FinalEssayPackage) -> ImagePackage:
+        print('generating illustration')
+        topic = await ctx.get('topic')
+        essay = ev.final_essay
+
+        @ell.simple(model="gpt-4o-mini", client=client)
+        def create_image_prompt(topic: str, essay: str) -> str:
+            """You are an expert at writing prompts for AI image generation."""
+            return f"""Create a detailed image generation prompt for this academic essay about {topic}.
+                   The image should be professional and educational.
+                   Essay: {essay}
+                   
+                   Write only the image prompt, no other text."""
+
+        prompt = create_image_prompt(topic, essay)
+
+        result = fal_client.subscribe(
+            "fal-ai/flux-pro/v1.1-ultra",
+            arguments={
+                "prompt": prompt
+            }
+        )
+
+        image_url = result['images'][0]['url']
+        await ctx.set('image_url', image_url)
+        return ImagePackage(image_url=image_url)
+
+    @step
+    async def generate_questions(self, ctx: Context, ev: FinalEssayPackage | ImagePackage) -> StopEvent:
+        """Modified to accept either FinalEssayPackage or ImagePackage"""
+        if isinstance(ev, ImagePackage):
+            # Store the image URL in context if it comes from ImagePackage
+            await ctx.set('image_url', ev.image_url)
+            return None
+            
         print('generating IELTS questions')
         final_essay = ev.final_essay
 
@@ -279,7 +317,13 @@ class IELTSExerciseFlow(Workflow):
         with open('publication/questions.md', 'w', encoding='utf-8') as f:
             f.write(formatted_questions)
             
-        return StopEvent(result="Exercise generation completed successfully")
+        # Get the image URL that was stored earlier
+        image_url = await ctx.get('image_url')
+            
+        return StopEvent(result={
+            "status": "Exercise generation completed successfully",
+            "image_url": image_url
+        })
 
     # Add workflow steps configuration
     def configure_steps(self):
@@ -288,7 +332,10 @@ class IELTSExerciseFlow(Workflow):
             "write_essay": {"input_steps": ["research_source_materials"]},
             "refine_draft_essay": {"input_steps": ["write_essay"]},
             "write_final_essay": {"input_steps": ["refine_draft_essay"]},
-            "generate_questions": {"input_steps": ["write_final_essay"]}
+            "generate_illustration": {"input_steps": ["write_final_essay"]},
+            "generate_questions": {
+                "input_steps": ["write_final_essay", "generate_illustration"]
+            }
         }
 
 # Helper function to read markdown files
@@ -302,4 +349,14 @@ def read_markdown_file(file_path):
 async def generate_exercise(topic):
     os.makedirs('publication', exist_ok=True)
     w = IELTSExerciseFlow(timeout=10000, verbose=False)
-    return await w.run(query=topic) 
+    result = await w.run(query=topic)
+    
+    # Get image URL from the result
+    image_url = None
+    if isinstance(result, dict):
+        image_url = result.get('image_url')
+    
+    return {
+        'result': result,
+        'image_url': image_url
+    } 

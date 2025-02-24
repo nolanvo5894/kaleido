@@ -51,9 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Update content
-            const essayContent = marked.parse(data.essay || '');
-            document.getElementById('essay-only').innerHTML = essayContent;
-            document.getElementById('transcript').innerHTML = essayContent;
+            await updateContent(data);
             
             // Format questions with better structure
             const questionsHtml = marked.parse(data.questions || '')
@@ -82,6 +80,28 @@ document.addEventListener('DOMContentLoaded', () => {
             generateButton.disabled = false;
         }
     });
+
+    async function updateContent(data) {
+        // Update essay content
+        const essayContent = marked.parse(data.essay || '');
+        
+        // Add image if available
+        const imageHtml = data.image_url ? 
+            `<div class="illustration-container mb-8">
+                <img src="${data.image_url}" alt="Topic illustration" class="w-full rounded-xl shadow-lg">
+             </div>` : '';
+        
+        // Wrap content in reading-content div
+        const contentHtml = `
+            <div class="reading-content">
+                ${imageHtml}
+                ${essayContent}
+            </div>
+        `;
+        
+        document.getElementById('essay-only').innerHTML = contentHtml;
+        document.getElementById('transcript').innerHTML = contentHtml;
+    }
 
     function initializeQuestions() {
         const submitButton = document.getElementById('submit-answers');
@@ -357,8 +377,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.status === 'success') {
                 // Update content
                 const essayContent = marked.parse(data.essay || '');
-                document.getElementById('essay-only').innerHTML = essayContent;
-                document.getElementById('transcript').innerHTML = essayContent;
+                const imageHtml = data.image_url ? 
+                    `<div class="illustration-container mb-8">
+                        <img src="${data.image_url}" alt="Topic illustration" class="w-full rounded-xl shadow-lg">
+                     </div>` : '';
+                
+                document.getElementById('essay-only').innerHTML = imageHtml + essayContent;
+                document.getElementById('transcript').innerHTML = imageHtml + essayContent;
                 
                 // Format questions with better structure
                 const questionsHtml = marked.parse(data.questions || '')

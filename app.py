@@ -14,8 +14,14 @@ from datetime import datetime
 from sqlalchemy.orm import Session
 from elevenlabs.client import ElevenLabs
 from elevenlabs import save
+from migrate_db import migrate_db
 
 app = FastAPI(title="IELTS Exercise Generator API")
+
+@app.on_event("startup")
+async def startup_event():
+    # Ensure database is migrated
+    migrate_db()
 
 # CORS middleware configuration
 app.add_middleware(
@@ -32,6 +38,7 @@ class TopicRequest(BaseModel):
 class ExerciseResponse(BaseModel):
     essay: Optional[str] = None
     questions: Optional[str] = None
+    image_url: Optional[str] = None
     status: str
     error: Optional[str] = None
 
@@ -65,6 +72,7 @@ async def generate_ielts_exercise(request: TopicRequest, db: Session = Depends(g
             return ExerciseResponse(
                 essay=existing_exercise.essay,
                 questions=existing_exercise.questions,
+                image_url=existing_exercise.image_url,
                 status="success"
             )
 
@@ -78,6 +86,11 @@ async def generate_ielts_exercise(request: TopicRequest, db: Session = Depends(g
         essay = read_markdown_file('publication/final_essay.md')
         questions = read_markdown_file('publication/questions.md')
         
+        # Get image URL from the workflow result
+        image_url = None
+        if isinstance(result, dict) and 'image_url' in result:
+            image_url = result['image_url']
+        
         if not essay or not questions:
             raise HTTPException(
                 status_code=500, 
@@ -89,22 +102,23 @@ async def generate_ielts_exercise(request: TopicRequest, db: Session = Depends(g
             db_exercise = Exercise(
                 topic=request.topic,
                 essay=essay,
-                questions=questions
+                questions=questions,
+                image_url=image_url
             )
             db.add(db_exercise)
             db.commit()
             db.refresh(db_exercise)
         except Exception as e:
             print(f"Database error: {str(e)}")
-            # Continue even if database storage fails
         
         return ExerciseResponse(
             essay=essay,
             questions=questions,
+            image_url=image_url,
             status="success"
         )
     except Exception as e:
-        print(f"Error generating exercise: {str(e)}")  # For debugging
+        print(f"Error generating exercise: {str(e)}")
         return ExerciseResponse(
             status="error",
             error=str(e)
@@ -165,6 +179,7 @@ async def get_exercise(exercise_id: int, db: Session = Depends(get_db)):
     return ExerciseResponse(
         essay=exercise.essay,
         questions=exercise.questions,
+        image_url=exercise.image_url,
         status="success"
     )
 
