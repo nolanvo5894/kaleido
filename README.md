@@ -7,40 +7,40 @@
 ### Environment Variables
 Create a `.env` file in the root directory with:
 
-bash
+```bash
 OPENAI_API_KEY=your_openai_api_key
 ELEVENLABS_API_KEY=your_elevenlabs_api_key
 FAL_KEY=your_fal_ai_key
 TAVILY_API_KEY=your_tavily_api_key
-
+```
 
 ### Installation
 
 1. Clone the repository
-bash
+```bash
 git clone https://github.com/yourusername/kaleido.git
 cd kaleido
-
+```
 
 2. Create and activate virtual environment
 
-bash
+```bash
 python -m venv venv
 source venv/bin/activate # On Windows: venv\Scripts\activate
-
+```
 
 3. Install dependencies
 
-bash
+```bash
 pip install -r requirements.txt
-
+```
 
 ### Running the App
 
 1. Start the FastAPI server
-bash
+```bash
 uvicorn app:app --reload
-
+```
 
 2. Open your browser and navigate to the localhost url given by the app 
 
