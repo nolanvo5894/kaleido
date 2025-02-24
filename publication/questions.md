@@ -4,27 +4,27 @@
 
 <div class="question-section" id="multiple-choice">
 <div class="question" data-type="multiple-choice" data-id="1">
-1. What is one key nutritional benefit of beef noodle soup mentioned in the essay?
-<label class="option"><input type="radio" name="mc-1" value="It is low in calories"> It is low in calories</label>
-<label class="option"><input type="radio" name="mc-1" value="It has a macronutrient distribution of 43% carbohydrates"> It has a macronutrient distribution of 43% carbohydrates</label>
-<label class="option"><input type="radio" name="mc-1" value="It is a good source of fiber"> It is a good source of fiber</label>
-<label class="option"><input type="radio" name="mc-1" value="It contains no fat"> It contains no fat</label>
+1. What is primarily responsible for regulating circadian rhythms?
+<label class="option"><input type="radio" name="mc-1" value="The pineal gland"> The pineal gland</label>
+<label class="option"><input type="radio" name="mc-1" value="The hypothalamus"> The hypothalamus</label>
+<label class="option"><input type="radio" name="mc-1" value="The suprachiasmatic nucleus (SCN)"> The suprachiasmatic nucleus (SCN)</label>
+<label class="option"><input type="radio" name="mc-1" value="The adrenal glands"> The adrenal glands</label>
 </div>
 
 <div class="question" data-type="multiple-choice" data-id="2">
-2. What cooking technique is primarily used for the beef in beef noodle soup?
-<label class="option"><input type="radio" name="mc-2" value="Frying"> Frying</label>
-<label class="option"><input type="radio" name="mc-2" value="Boiling"> Boiling</label>
-<label class="option"><input type="radio" name="mc-2" value="Braising"> Braising</label>
-<label class="option"><input type="radio" name="mc-2" value="Baking"> Baking</label>
+2. Which hormone is secreted by the pineal gland to facilitate sleep onset?
+<label class="option"><input type="radio" name="mc-2" value="Cortisol"> Cortisol</label>
+<label class="option"><input type="radio" name="mc-2" value="Prolactin"> Prolactin</label>
+<label class="option"><input type="radio" name="mc-2" value="Adrenaline"> Adrenaline</label>
+<label class="option"><input type="radio" name="mc-2" value="Melatonin"> Melatonin</label>
 </div>
 
 <div class="question" data-type="multiple-choice" data-id="3">
-3. What type of broth is characterized by a bold, red hue and chilies?
-<label class="option"><input type="radio" name="mc-3" value="Huang broth"> Huang broth</label>
-<label class="option"><input type="radio" name="mc-3" value="Pure broth"> Pure broth</label>
-<label class="option"><input type="radio" name="mc-3" value="Miso broth"> Miso broth</label>
-<label class="option"><input type="radio" name="mc-3" value="Hong shao broth"> Hong shao broth</label>
+3. What health condition is NOT mentioned as being associated with chronic sleep deprivation?
+<label class="option"><input type="radio" name="mc-3" value="Obesity"> Obesity</label>
+<label class="option"><input type="radio" name="mc-3" value="Cancers"> Cancers</label>
+<label class="option"><input type="radio" name="mc-3" value="Diabetes"> Diabetes</label>
+<label class="option"><input type="radio" name="mc-3" value="Cardiovascular diseases"> Cardiovascular diseases</label>
 </div>
 
 </div>
@@ -33,28 +33,28 @@
 
 <div class="question-section" id="true-false">
 <div class="question" data-type="true-false" data-id="1">
-1. Beef noodle soup contains only meat and no vegetables.
+1. Circadian rhythms are unaffected by environmental factors such as light.
 <label class="option"><input type="radio" name="tf-1" value="True"> True</label>
                 <label class="option"><input type="radio" name="tf-1" value="False"> False</label>
                 <label class="option"><input type="radio" name="tf-1" value="Not Given"> Not Given</label>
             </div>
 
 <div class="question" data-type="true-false" data-id="2">
-2. The essay suggests that beef noodle soup is popular in various cultures, especially in Asia.
+2. REM sleep is important for emotional regulation and memory consolidation.
 <label class="option"><input type="radio" name="tf-2" value="True"> True</label>
                 <label class="option"><input type="radio" name="tf-2" value="False"> False</label>
                 <label class="option"><input type="radio" name="tf-2" value="Not Given"> Not Given</label>
             </div>
 
 <div class="question" data-type="true-false" data-id="3">
-3. A typical serving of beef noodle soup has 200 calories.
+3. According to the Centers for Disease Control and Prevention, most adults get enough sleep.
 <label class="option"><input type="radio" name="tf-3" value="True"> True</label>
                 <label class="option"><input type="radio" name="tf-3" value="False"> False</label>
                 <label class="option"><input type="radio" name="tf-3" value="Not Given"> Not Given</label>
             </div>
 
 <div class="question" data-type="true-false" data-id="4">
-4. Beef noodle soup is only enjoyed in cold weather.
+4. Maintaining a consistent sleep schedule can help improve sleep hygiene.
 <label class="option"><input type="radio" name="tf-4" value="True"> True</label>
                 <label class="option"><input type="radio" name="tf-4" value="False"> False</label>
                 <label class="option"><input type="radio" name="tf-4" value="Not Given"> Not Given</label>
@@ -69,10 +69,10 @@ Match these headings to the correct paragraphs:
 
 <div class="matching-container">
 <div class="headings-list">
-<div class="heading" draggable="true" data-id="1">Introduction to Beef Noodle Soup</div>
-<div class="heading" draggable="true" data-id="2">Nutritional Benefits of Beef Noodle Soup</div>
-<div class="heading" draggable="true" data-id="3">Cooking Techniques and Flavor Profiles</div>
-<div class="heading" draggable="true" data-id="4">Cultural Significance and Versatility of the Dish</div>
+<div class="heading" draggable="true" data-id="1">The Role of Light in Sleep Regulation</div>
+<div class="heading" draggable="true" data-id="2">Consequences of Sleep Deprivation</div>
+<div class="heading" draggable="true" data-id="3">Understanding Sleep Stages</div>
+<div class="heading" draggable="true" data-id="4">Tips for Better Sleep Hygiene</div>
 </div>
 <div class="paragraph-slots">
 <div class="slot" data-slot="1">Paragraph 1</div>
@@ -89,37 +89,37 @@ Match these headings to the correct paragraphs:
 <div class="answer-section">
 <h3 class="font-semibold mb-2">Multiple Choice Questions</h3>
 <div class="answer-item" data-answer-type="mc" data-id="1">
-<span class="question-number">Question 1:</span> It has a macronutrient distribution of 43% carbohydrates
+<span class="question-number">Question 1</span>&nbsp;The suprachiasmatic nucleus (SCN)
 </div>
 <div class="answer-item" data-answer-type="mc" data-id="2">
-<span class="question-number">Question 2:</span> Braising
+<span class="question-number">Question 2</span>&nbsp;Melatonin
 </div>
 <div class="answer-item" data-answer-type="mc" data-id="3">
-<span class="question-number">Question 3:</span> Hong shao broth
+<span class="question-number">Question 3</span>&nbsp;Cancers
 </div>
 </div>
 <div class="answer-section">
 <h3 class="font-semibold mb-2">True/False/Not Given</h3>
 <div class="answer-item" data-answer-type="tf" data-id="1">
-<span class="question-number">Statement 1:</span> False
+<span class="question-number">Statement 1</span>&nbsp;False
 </div>
 <div class="answer-item" data-answer-type="tf" data-id="2">
-<span class="question-number">Statement 2:</span> True
+<span class="question-number">Statement 2</span>&nbsp;True
 </div>
 <div class="answer-item" data-answer-type="tf" data-id="3">
-<span class="question-number">Statement 3:</span> False
+<span class="question-number">Statement 3</span>&nbsp;False
 </div>
 <div class="answer-item" data-answer-type="tf" data-id="4">
-<span class="question-number">Statement 4:</span> Not Given
+<span class="question-number">Statement 4</span>&nbsp;True
 </div>
 </div>
 <div class="answer-section">
 <h3 class="font-semibold mb-2">Matching Headings</h3>
 <div class="matching-answers">
-<div class="answer-item">Paragraph 1: Introduction to Beef Noodle Soup</div>
-<div class="answer-item">Paragraph 2: Nutritional Benefits of Beef Noodle Soup</div>
-<div class="answer-item">Paragraph 3: Cooking Techniques and Flavor Profiles</div>
-<div class="answer-item">Paragraph 4: Cultural Significance and Versatility of the Dish</div>
+<div class="answer-item">Paragraph 1: The Role of Light in Sleep Regulation</div>
+<div class="answer-item">Paragraph 2: Consequences of Sleep Deprivation</div>
+<div class="answer-item">Paragraph 3: Understanding Sleep Stages</div>
+<div class="answer-item">Paragraph 4: Tips for Better Sleep Hygiene</div>
 </div>
 </div>
 </div>

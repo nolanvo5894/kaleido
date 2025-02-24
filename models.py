@@ -8,7 +8,7 @@ Base = declarative_base()
 class Exercise(Base):
     __tablename__ = "exercises"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     topic = Column(String(255), index=True, nullable=False)
     essay = Column(Text, nullable=False)
     questions = Column(Text, nullable=False)
